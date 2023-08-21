@@ -1,4 +1,4 @@
-import './App.scss';
+import '/src/styles/main.scss';
 import { NavLink, Routes, Route, Navigate } from 'react-router-dom';
 import { PageHome } from './pages/PageHome';
 import { PageInfo } from './pages/PageInfo';
@@ -7,12 +7,19 @@ import { PageAbout } from './pages/PageAbout';
 function App() {
 	return (
 		<div className="App">
-			<h1>Info Site</h1>
-			<nav>
-				<NavLink to="/home">Home</NavLink>
-				<NavLink to="/info">Info</NavLink>
-				<NavLink to="/about">About</NavLink>
-			</nav>
+
+			<header>
+				<h1>THE CRAZY SITE</h1>
+				<div className="thin-line"></div>
+
+				<nav>
+					<NavLink to="/home">Home</NavLink>
+					<NavLink to="/info">Info</NavLink>
+					<NavLink to="/about">About</NavLink>
+				</nav>
+				
+				<div className="thin-line"></div>
+			</header>
 
 			<Routes>
 				<Route path="/home" element={<PageHome />} />

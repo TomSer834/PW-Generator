@@ -30,30 +30,26 @@ body {
   p {
     margin-top: 2rem;
     text-align: center;
+    font-weight: normal;
+    font-size: 1.3rem;
   }
 
   nav {
     margin-bottom: 0rem;
     background-color: #161616;
     padding: 0.5rem;
+    padding-left: 3rem;
+    display: flex;
+    font-size: 1rem;
+    gap: 2rem;
+NavLink {
+    color: #aaa;
+    text-decoration: none;
 
-    ul {
-      display: flex;
-      list-style-type: none;
-      margin-left: 1.5rem;
-      gap: 1rem;
-
-      li {
-        a {
-          color: #aaa;
-          text-decoration: none;
-
-          &.active {
-            color: rgb(221, 158, 40);
-          }
-        }
-      }
+    &.active {
+      color: rgb(221, 158, 40);
     }
+  }
   }
 
   main {
