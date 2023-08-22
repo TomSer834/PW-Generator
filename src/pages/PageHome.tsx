@@ -4,7 +4,7 @@ export const PageHome = () => {
 	return (
 		<>
 			<div className="home">
-				<p>Welcome to this site!</p>
+				<img src="/images/burning.gif" alt="" />
 			</div>
 		</>
 	);

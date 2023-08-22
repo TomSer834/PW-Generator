@@ -13,9 +13,9 @@ function App() {
 				<div className="thin-line"></div>
 
 				<nav>
-					<NavLink to="/home">Home</NavLink>
-					<NavLink to="/info">Info</NavLink>
-					<NavLink to="/about">About</NavLink>
+					<NavLink className="naviLink" to="/home">Home</NavLink>
+					<NavLink className="naviLink" to="/info">Info</NavLink>
+					<NavLink className="naviLink" to="/about">About</NavLink>
 				</nav>
 				
 				<div className="thin-line"></div>
