@@ -201,10 +201,14 @@ export const dataTable = (startAt: number, endAt: number, stepSize: number, leng
                 }
 
                 if (k === 2) {
+
                     averageHtml[i] += average[i][0].toFixed(roundToDigits[0]) - average[i][1].toFixed(roundToDigits[1]);
-                } else {
+
+                } else if (average[i][k].toFixed(roundToDigits[k]) != 0) {
+
                     averageHtml[i] += average[i][k].toFixed(roundToDigits[k]);
-                }
+                    
+                } else averageHtml[i] += 0;
 
             } else averageHtml[i] += "---";
 
