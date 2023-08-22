@@ -131,7 +131,7 @@ export const PageShark = () => {
 
                             {/* Step size cm */}
                             <span>step size: </span>
-                            <input id="element_7" className="inputElements inputElement-7" type="number" min="10" max="200" step="10"
+                            <input id="element_7" className="inputElements inputElement-7" type="number" min="1" max="200" step="1"
                                 value={step_size} onChange={(e) => handle_step_size_change(e)} />
                             <span> cm</span>
 

@@ -1,12 +1,12 @@
-import { columnTitles } from "../data/settings.ts";
-import { columnTitleColors } from "../data/settings.ts";
-import { columnColors } from "../data/settings.ts";
-import { units } from "../data/settings.ts";
-import { addPlus } from "../data/settings.ts";
-import { roundToDigits } from "../data/settings.ts";
-import { legend } from "../data/settings.ts";
+import { columnTitles } from "../data/settings.js";
+import { columnTitleColors } from "../data/settings.js";
+import { columnColors } from "../data/settings.js";
+import { units } from "../data/settings.js";
+import { addPlus } from "../data/settings.js";
+import { roundToDigits } from "../data/settings.js";
+import { legend } from "../data/settings.js";
 
-import { calculateCell } from "./calculations.ts";
+import { calculateCell } from "./calculations.js";
 
 
 export const dataTable = (startAt: number, endAt: number, stepSize: number, lengthReference: number) => {

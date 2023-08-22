@@ -1,5 +1,4 @@
-import { legend } from "../data/settings.ts";
-
+import { legend } from "../data/settings.js";
 
 export const legendTable = () => {
 
