@@ -119,7 +119,7 @@ export const dataTable = (startAt: number, endAt: number, stepSize: number, leng
 
                         tableBodyTeamsCellHtml[i][j] += tableBodyValues[i][j][0].toFixed(roundToDigits[0]) - tableBodyValues[i][j][1].toFixed(roundToDigits[1]);
 
-                    } else if (tableBodyValues[i][j][k].toFixed(roundToDigits[0]) != 0) {
+                    } else if (tableBodyValues[i][j][k].toFixed(roundToDigits[k]) != 0) {
 
                         tableBodyTeamsCellHtml[i][j] += tableBodyValues[i][j][k].toFixed(roundToDigits[k]);
 
