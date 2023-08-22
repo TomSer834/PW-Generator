@@ -49,10 +49,12 @@ body {
 				position: relative;
 				opacity: 90%;
 				border: #b4b4b4 solid 2px;
-
+	
 				.firstSpan {
 					color: #1515ff;
 					font-size: 0.85rem;
+					margin-top: 0;
+					text-align: center;
 				}
 
 				.inputItems {

@@ -1,143 +1,163 @@
-import '../src/styles/shark.scss';
+import '../styles/shark.scss';
 
 import { legendTable } from "../components/legend-table.js";
 import { dataTable } from "../components/data-table.js";
 
+import{ useState } from 'react';
+
+
 export const PageShark = () => {
+
+    const [length_m, set_length_m] = useState(3);
+    const handle_length_m_change = (e: React.ChangeEvent) => {
+        set_length_m(Number((e.target as HTMLInputElement).value));
+    }
+
+    const [length_cm, set_length_cm] = useState(50);
+    const handle_length_cm_change = (e: React.ChangeEvent) => {
+       set_length_cm(Number((e.target as HTMLInputElement).value));
+    }
+
+    const [start_at_m, set_start_at_m] = useState(3);
+    const handle_start_at_m_change = (e: React.ChangeEvent) => {
+       set_start_at_m(Number((e.target as HTMLInputElement).value));
+    }
+
+    const [start_at_cm, set_start_at_cm] = useState(50);
+    const handle_start_at_cm_change = (e: React.ChangeEvent) => {
+       set_start_at_cm(Number((e.target as HTMLInputElement).value));
+    }
+
+    const [end_at_m, set_end_at_m] = useState(4);
+    const handle_end_at_m_change = (e: React.ChangeEvent) => {
+        set_end_at_m(Number((e.target as HTMLInputElement).value));
+    }
+
+    const [end_at_cm, set_end_at_cm] = useState(50);
+    const handle_end_at_cm_change = (e: React.ChangeEvent) => {
+        set_end_at_cm(Number((e.target as HTMLInputElement).value));
+    }
+
+    const [step_size, set_step_size] = useState(50);
+    const handle_step_size_change = (e: React.ChangeEvent) => {
+        set_step_size(Number((e.target as HTMLInputElement).value));
+    }
+
+    const starter =(e: React.MouseEvent) => {
+
+        e.preventDefault();
+
+        /* make legend table */
+        const _Table_1 = document.getElementById("legend-div");
+        if (_Table_1) {
+            const Table_1 = _Table_1;
+            Table_1.innerHTML = legendTable();
+
+        } else {
+            console.log("Div for legend table does not exist!");
+        }
+
+        /* make data table */
+        const _Table_2 = document.getElementById("data-div");
+        if (_Table_2) {
+            const Table_2 = _Table_2;
+            Table_2.innerHTML = makeDataTable();
+
+        } else {
+            console.log("Div for data table does not exist!");
+        }
+    }
+
+
     return (
         
-            <div className="page-pageShark">
+        <div className="page-pageShark">
 
-                <header className="header-substitute" >
-                    <h6>Carcharodon carcharias</h6>
-                </header>
+            <header className="header-substitute" >
+                <h6>Carcharodon carcharias</h6>
+            </header>
 
-                <div className="sharks">
-                    <div></div>
-                    <div className="sh-left"><img src="/images/shark-left.png" /></div>
-                    <div></div>
-                    <div className="sh-right"><img src="/images/shark-right.png" /></div>
-                    <div></div>
-                </div>
+            <div className="sharks">
+                <div></div>
+                <div className="sh-left"><img src="/images/shark-left.png" /></div>
+                <div></div>
+                <div className="sh-right"><img src="/images/shark-right.png" /></div>
+                <div></div>
+            </div>
 
-                <div className="main-substitute">
-                    <div className="inputField">
+            <div className="main-substitute">
+                <div className="inputField">
+                    <div className="firstSpan">Choose the size reference for allometric comparison:</div>
 
-                        <span className="firstSpan">Choose the size reference for allometric comparison:</span>
+                    <div className="inputItems">
+                        <form id="starter">
 
-                        <div className="inputItems">
-                            <form id="starter" action="" method="">
+                            <span>length: &nbsp;&nbsp;&nbsp;</span>
 
-                                <label>
-                                    <span>length: &nbsp&nbsp</span>
-                                    <input id="element_1" className="inputElements inputElement-1" name="length_ref_in_meters"
-                                        type="number" min="1" max="7" step="1" value="3" />
-                                    <span>m&nbsp;</span>
-                                </label>
-                            
-                                <label>
-                                    <input id="element_2" className="inputElements" name="length_ref_in_centimeters" type="number"
-                                        min="0" max="90" step="10" value="50" />
-                                    <span>cm</span>
-                                </label>
+                            {/* Length m */}
+                            <input id="element_1" className="inputElements inputElement-1" type="number" min="1" max="7" step="1"
+                                value={length_m} onChange={(e) => handle_length_m_change(e)}/>
+                            <span> m &nbsp;</span>
 
-                                <hr/>
-                         
-                                <p /* style="color: #1515FF; font-size: 0.85rem; margin-top: 1rem;" */>Specify the size range:</p>
+                            {/* Length cm */}
+                            <input id="element_2" className="inputElements" type="number" min="0" max="90" step="10"
+                                value={length_cm} onChange={(e) => handle_length_cm_change(e)}/>
+                            <span> cm</span>
 
-                                <label>
-                                    <span>start at:&nbsp;</span>
-                                    <input id="element_3" className="inputElements inputElement-3" name="start_at_in_meters"
-                                        type="number" min="1" max="7" step="1" value="3" />
-                                    <span>m&nbsp;</span>
-                                </label>
+                            <hr/><br />
+                            <p className="firstSpan">Specify the size range:</p>
+                            <span>start at: &nbsp;</span>
 
-                                <label>
-                                    <input id="element_4" className="inputElements" name="start_in_centimeters"
-                            /* style="width: 4rem; text-align: right;" */ type="number" min="0" max="90" step="10" value="50" />
-                                    <span>cm</span>
-                                </label>
+                            {/* Start at m */}
+                            <input id="element_3" className="inputElements inputElement-3" type="number" min="1" max="7" step="1"
+                                value={start_at_m} onChange={(e) => handle_start_at_m_change(e)}/>
+                            <span> m &nbsp;</span>
 
-                                <label>
-                                    <span>end at: &nbsp;&nbsp;</span>
-                                    <input id="element_5" className="inputElements" name="end_at_in_meters"
-                           /* style="width: 4rem; text-align: right;" */ type="number" min="1" max="20" step="1" value="4" />
-                                    <span>m&nbsp;</span>
-                                </label>
+                            {/* Start at cm */}
+                            <input id="element_4" className="inputElements" type="number" min="0" max="90" step="10"
+                                value={start_at_cm} onChange={(e) => handle_start_at_cm_change(e)} />
+                            <span> cm</span>
+
+                            {/* End at m */}
+                            <span> end at: &nbsp;&nbsp;&nbsp;</span>
+                            <input id="element_5" className="inputElements" type="number" min="1" max="20" step="1"
+                                value={end_at_m} onChange={(e) => handle_end_at_m_change(e)} />
+                            <span> m&nbsp;&nbsp;</span>
                                 
-                                <label>
-                                    <input id="element_6" className="inputElements" name="end_at_in_centimeters"
-                          /* style="width: 4rem; text-align: right;" */ type="number" min="0" max="90" step="10" value="50" />
-                                    <span>cm</span>
-                                </label>
+                            {/* End at cm */}
+                            <input id="element_6" className="inputElements" type="number" min="0" max="90" step="10"
+                                value={end_at_cm} onChange={(e) => handle_end_at_cm_change(e)} />
+                            <span> cm </span>
 
-                                <label>
-                                    <span>step size:</span>
-                                    <input id="element_7" className="inputElements inputElement-7" name="step_size_in_centimeters"
-                                        type="number" min="10" max="200" step="10" value="50" />
-                                    <span>cm</span>
-                                </label>
+                            {/* Step size cm */}
+                            <span>step size: </span>
+                            <input id="element_7" className="inputElements inputElement-7" type="number" min="10" max="200" step="10"
+                                value={step_size} onChange={(e) => handle_step_size_change(e)} />
+                            <span> cm</span>
 
-                                <hr/>
+                            <hr/>
 
-                                <div className="inputFieldBottom">
-                                    <label>
-                                        <input id="element_8" className="button" type="submit" value="Calculate" name="Calculate" />
-                                    </label>
-                                </div>
+                            {/* Button */}
+                            <div className="inputFieldBottom">
+                                    <input id="element_8" className="button" type="submit" value="Calculate" onClick={(e) => starter(e)}/>
+                            </div>
 
-                            </form>
-                        </div>
+                        </form>
                     </div>
                 </div>
-
-                <div id="container">
-
-                    <div id="legend-div"></div>
-
-                    <div id="data-div"></div>
-
-                </div>
             </div>
+
+            <div id="container">
+
+                <div id="legend-div"></div>
+
+                <div id="data-div"></div>
+
+            </div>
+        </div>
     
     );
 };
-
-export const attachEvents = () => {
-
-    const _Starter = document.getElementById("starter");
-    if (_Starter) {
-
-        const Starter = _Starter;
-
-        Starter.addEventListener("submit", (e) => {
-            e.preventDefault();
-
-            /* make legend table */
-            const _Table_1 = document.getElementById("legend-div");
-            if (_Table_1) {
-                const Table_1 = _Table_1;
-                Table_1.innerHTML = legendTable();
-
-            } else {
-                console.log("Div for legend table does not exist!");
-            }
-
-            /* make data table */
-            const _Table_2 = document.getElementById("data-div");
-            if (_Table_2) {
-                const Table_2 = _Table_2;
-                Table_2.innerHTML = makeDataTable();
-
-            } else {
-                console.log("Div for data table does not exist!");
-            }
-        })
-
-    } else {
-        console.log("Starter is null!");
-    }
-}
 
 
 const makeDataTable = () => {
