@@ -1,7 +1,7 @@
 import '/src/styles/password.scss';
 
 import { useState } from 'react';
-import { pwCreate } from "../components/password/pw-create.tsx";
+import { pwCreate } from "../components/password/pw-create";
 
 export const PagePWGenerator = () => {
 
