@@ -1,7 +1,7 @@
 import '../styles/shark.scss';
 
-import { legendTable } from "../components/legend-table.js";
-import { dataTable } from "../components/data-table.js";
+import { legendTable } from "../components/legend-table.tsx";
+import { dataTable } from "../components/data-table.tsx";
 
 import{ useState } from 'react';
 
