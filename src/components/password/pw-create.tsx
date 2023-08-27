@@ -4,11 +4,11 @@ export const pwCreate = (pwSpecifiedLength: number,
     mustIncludeCapLetter: boolean,
     mustIncludeLowLetter: boolean,
     mustIncludeSpecialChar: boolean,
-    excludedChars: Array<string>) => {
+    excludedChars: Array<string>
+    ) => {
 
     let pw = "";
     let protectedAreas = [];
-
 
     for (let i = 0; i < pwSpecifiedLength; i++) {
         let isAllowedChar, pwAdd;
@@ -25,20 +25,14 @@ export const pwCreate = (pwSpecifiedLength: number,
         pw += pwAdd;
     }
 
-    //************************************************************************
-  /*   pw = "OOOOOOOO"; */
-    //************************************************************************
-
-
 
     console.log("pw vorher", pw);
 
-    console.log("Durchlauf 1:*******************************************************************");
     protectedAreas = checkProtectedAreas();
-    
+
     if (mustIncludeNumber) {
         let foundNumber = false;
-    
+
         for (let i = 0; i < pwSpecifiedLength; i++) {
             if (pw.charCodeAt(i) > 47 && pw.charCodeAt(i) < 58) {
                 foundNumber = true;
@@ -50,7 +44,7 @@ export const pwCreate = (pwSpecifiedLength: number,
             do {
                 pos = Math.floor(Math.random() * pwSpecifiedLength);
             } while (protectedAreas.includes(pos));
-    
+
             let isAllowedChar, pwAdd;
             do {
                 isAllowedChar = true;
@@ -62,17 +56,16 @@ export const pwCreate = (pwSpecifiedLength: number,
                     }
                 }
             } while (!isAllowedChar);
-    
+
             pw = pw.slice(0, pos) + pwAdd + pw.slice(pos + 1);
         }
     }
-    
-    console.log("Durchlauf 2:*******************************************************************");
+
     protectedAreas = checkProtectedAreas();
-    
+
     if (mustIncludeCapLetter) {
         let foundCapLetter = false;
-    
+
         for (let i = 0; i < pwSpecifiedLength; i++) {
             if (pw.charCodeAt(i) > 64 && pw.charCodeAt(i) < 91) {
                 foundCapLetter = true;
@@ -84,7 +77,7 @@ export const pwCreate = (pwSpecifiedLength: number,
             do {
                 pos = Math.floor(Math.random() * pwSpecifiedLength);
             } while (protectedAreas.includes(pos));
-    
+
             let value, pwAdd, repeat;
             do {
                 repeat = false;
@@ -97,17 +90,16 @@ export const pwCreate = (pwSpecifiedLength: number,
                     }
                 }
             } while (repeat);
-    
+
             pw = pw.slice(0, pos) + pwAdd + pw.slice(pos + 1);
         }
     }
-    
-    console.log("Durchlauf 3:*******************************************************************");
+
     protectedAreas = checkProtectedAreas();
-    
+
     if (mustIncludeLowLetter) {
         let foundLowLetter = false;
-    
+
         for (let i = 0; i < pwSpecifiedLength; i++) {
             if (pw.charCodeAt(i) > 96 && pw.charCodeAt(i) < 123) {
                 foundLowLetter = true;
@@ -119,7 +111,7 @@ export const pwCreate = (pwSpecifiedLength: number,
             do {
                 pos = Math.floor(Math.random() * pwSpecifiedLength);
             } while (protectedAreas.includes(pos));
-    
+
             let value, pwAdd, repeat;
             do {
                 repeat = false;
@@ -132,18 +124,16 @@ export const pwCreate = (pwSpecifiedLength: number,
                     }
                 }
             } while (repeat);
-    
+
             pw = pw.slice(0, pos) + pwAdd + pw.slice(pos + 1);
         }
     }
-    
-    
-    console.log("Durchlauf 4:*******************************************************************");
+
     protectedAreas = checkProtectedAreas();
-    
+
     if (mustIncludeSpecialChar) {
         let foundSpecialChar = false;
-    
+
         for (let i = 0; i < pwSpecifiedLength; i++) {
             if (pw.charCodeAt(i) > 32 && pw.charCodeAt(i) < 48 ||
                 pw.charCodeAt(i) > 57 && pw.charCodeAt(i) < 65 ||
@@ -159,7 +149,7 @@ export const pwCreate = (pwSpecifiedLength: number,
             do {
                 pos = Math.floor(Math.random() * pwSpecifiedLength);
             } while (protectedAreas.includes(pos));
-    
+
             let value, pwAdd, repeat;
             do {
                 repeat = false;
@@ -179,38 +169,19 @@ export const pwCreate = (pwSpecifiedLength: number,
                 )) {
                     repeat = true;
                 }
-    
+
             } while (repeat);
-    
+
             pw = pw.slice(0, pos) + pwAdd + pw.slice(pos + 1);
         }
     }
-    
-    console.log("Durchlauf 5:*******************************************************************");
-    protectedAreas = checkProtectedAreas();
-    
-    console.log("pw nacher", pw);
-                 
-    
-    
-    
-    
-    
-    //***********************************************************************************************************
-    //***********************************************************************************************************
-    //***********************************************************************************************************
-    //***********************************************************************************************************
-    //***********************************************************************************************************
-    //***********************************************************************************************************
-    
-    
-    
-    
-    
+
+    //***********************************************************************
+
     function checkProtectedAreas() {
-    
+
         let protectedAreas = [];
-    
+
         if (mustIncludeNumber) {
             let counter = 0;
             let pos;
@@ -222,10 +193,7 @@ export const pwCreate = (pwSpecifiedLength: number,
             }
             if (counter === 1) protectedAreas.push(pos);
         }
-    
-        console.log("protectedAreas nach mustIncludeNumber =", protectedAreas);
-        console.log("pw: ", pw);
-    
+
         if (mustIncludeCapLetter) {
             let counter = 0;
             let pos;
@@ -237,10 +205,7 @@ export const pwCreate = (pwSpecifiedLength: number,
             }
             if (counter === 1) protectedAreas.push(pos);
         }
-    
-        console.log("protectedAreas nach mustIncludeCapLetter =", protectedAreas);
-        console.log("pw: ", pw);
-    
+
         if (mustIncludeLowLetter) {
             let counter = 0;
             let pos;
@@ -252,10 +217,7 @@ export const pwCreate = (pwSpecifiedLength: number,
             }
             if (counter === 1) protectedAreas.push(pos);
         }
-    
-        console.log("protectedAreas nach mustIncludeLowLetter =", protectedAreas);
-        console.log("pw: ", pw);
-    
+
         if (mustIncludeSpecialChar) {
             let counter = 0;
             let pos;
@@ -271,9 +233,7 @@ export const pwCreate = (pwSpecifiedLength: number,
             }
             if (counter === 1) protectedAreas.push(pos);
         }
-    
-        console.log("protectedAreas nach mustIncludeSpecialChar =", protectedAreas);
-        console.log("pw: ", pw);
+
         return protectedAreas;
     }
 
