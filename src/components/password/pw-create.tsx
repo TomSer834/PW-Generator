@@ -24,9 +24,7 @@ export const pwCreate = (pwSpecifiedLength: number,
         } while (!isAllowedChar);
         pw += pwAdd;
     }
-
-
-    console.log("pw vorher", pw);
+    
 
     protectedAreas = checkProtectedAreas();
 

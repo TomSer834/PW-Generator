@@ -103,6 +103,48 @@ export const PagePWGenerator = () => {
 		}
 	}
 
+	const starterCopy = (e: React.MouseEvent) => {
+
+		e.preventDefault();
+
+		const _TextField = document.getElementById("pw-textField");
+
+		if (_TextField) {
+
+			const TextField = _TextField;
+			const copyText = (TextField as HTMLInputElement).value;
+			navigator.clipboard.writeText(copyText);
+
+			/* alert("Copied: " + copyText); */
+
+		} else {
+			console.log("The text field does not exist!");
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	return (
 		<div className="passwords">
 			<div className="pw-inputField">
@@ -178,13 +220,18 @@ export const PagePWGenerator = () => {
 					</div>
 
 					<div className="pw-action">
-						{/* Button */}
+						{/* Create-pw-button */}
 						<div>
 							<input id="pw-button" type="submit" value=" Create password " onClick={(e) => starter(e)} />
 						</div>
 
 						{/* Textfield */}
 						<textarea id="pw-textField" placeholder="Password" defaultValue="" />
+
+						{/* Copy-button*/}
+						<div id="pw-copy-div">
+							<input id="pw-copy-button" type="submit" value=" Copy to clipboard " onClick={(e) => starterCopy(e)} />
+						</div>
 					</div>
 
 				</form>
